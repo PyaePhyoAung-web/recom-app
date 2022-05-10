@@ -1,0 +1,21 @@
+# This is a basic workflow to help you get started with Actions
+
+name: 'Netlify Deploy'
+
+# Controls when the workflow will run
+on:
+  release:
+    types: ['published']
+jobs:
+  deploy:
+    name: 'Deploy'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: jsmrcaga/action-netlify-deploy@master
+        with:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}deploy:
+   
+      
